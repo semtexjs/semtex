@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- node
+install:
+- npm ci
+- npx lerna bootstrap --hoist
+script:
+- npx lerna run ci
+before_deploy:
+- git config --global user.email "travis@travis-ci.org"
+- git config --global user.name "Travis CI"
+- git remote set-url origin "https://${GITHUB_TOKEN}@github.com/semtexjs/semtex.git" > /dev/null 2>&1
+- echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+deploy:
+- skip_cleanup: true
+  provider: script
+  script: npx lerna publish
+  on:
+    branch: master
+- skip_cleanup: true
+  provider: script
+  script: npx lerna publish --canary --preid ${TRAVIS_BRANCH}
+  on:
+    condition: "! $TRAVIS_BRANCH =~ ^(master)$"
+env:
+  global:
+  - secure: KSFyWSLOIIOaRu/z8UAOm525ef/eEpkqYzf1iq1NbYAPoxjaiaKVYLXJbMY8KXh9tGo1Dj18Z5uXSC/948dImKjvv0FAAv4C8Uktqc++hp+zL5rXPErOnEDMGapDYVx4IAvX2MeQnj9B6vhwE2axJXsZ9LsASCB6dxf4abV5f0mu3JWZn+0E3LOtBkvVFYLi+Xgw7pNxnKLWlAfCkj9UcdfSw3VqL4m00ivifi7cO8UF8zTMcd78b5z0UIFH5FYff8JDfl5beRll+SID678zQnCTTM8nzDUbc9ggsJDBXFwsCeKeP+Bu2Ca2iVdGPxcZtnarHxng0ITPD1TsA7KJALAGcNRLnQBM7Fp82YnjerzEVKHz80IIqsisR8FRvaeC23NS2wMnqluwEDaghHiwF2t4XLzRiuA0Ne6D75AvJT4TdV5tvh3nkD3goWBrBL3BtIJxUHqk2ZhhFdbeeGfrhLXJCwS7Sxji2aMh9fY6NgxskE20lmAH3ezIeN6xFeq2mENG9QDpf4wL9K78AvtRoMC+OWcH2tJ3O1C69GvJI3gus2pCiQ/po9EciPeGcWwGIHwg5pKkHxPXImPDiXFdxgLcOGL8leSO0UXxhZKHwkI3LmR2wOMsP4mO4IPGVczR8oyI6XRSmOS2ATNhfVFj8iXJKCUHds71fkYMWkCjMqk=
+  - secure: ZBoU92g6y8XPlenGpDOSBeda1XL+xCf5Az5b/noKRCvLykxul3Al+TDVi4B+z8GfCZk9ClAqvMrLddzKjgbTldoQ7TH/iyMqvnulRMHIRPAY9maXUspUMt9qefDO8qoyo8JfBJrPQDQv0wiN87dOUbI85Wl6BAGebupmQ7mAX0EqrhUpuRjytILYvD+nlOjXr3cIri8UT7Z6IfI7Kic7yM0o+qwOrDsnofWinc6L/WWokrBUr67ruLpDvnK7kgSPNaFlu2PPpAjvFxrXLDVURCGDFNpiHiygNfZ1HptVTSXFc/EtZcO4IppJxHnyAn3t5OSzx2bAMH2D7h58QGfZbwVsTAVmNobLsPkAbTrPpss0yHbk7sbIVuNxquwv9eCnLV9Q70aCe0H111N24chDBtEIi6oks4Zv/GGZDvobmDKLdHoGwi2U4rLXQ01a6zYBtow6nfbMvuLjiWRsTt2VqmW8QpeaLucGEHiO2mKKqvRLyCkFqXbFc6K9EB7mFhBj2rRmPqbNblGFvjReJzJa3UZx/8lLEfX1roYKQqFWeZ5Kby3z+pzSBS/nUH1EIB/yAY8MHCA5hDUemeO4BIvkAuqKtZkK0NClBYJFn3Z3SuPwO7Apu9+YGMtcLPIU+uezNX0JJaRWSDfDdDZf8zvmhJN3UZ4cgayolAluTsNCmGA=
