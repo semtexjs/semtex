@@ -4,6 +4,9 @@
     "packages/*"
   ],
   "command": {
+    "version": {
+      "message": "chore(release): published %s"
+    },
     "publish": {
       "conventionalCommits": true
     }
