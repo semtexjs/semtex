@@ -5,6 +5,7 @@
   "main": "bin/cli.js",
   "module": "src/cli.js",
   "scripts": {
+    "lint": "eslint src",
     "build": "babel src -d bin"
   },
   "keywords": [
@@ -18,11 +19,14 @@
   "author": "Gary Doublé",
   "license": "ISC",
   "dependencies": {
-    "@semtexjs/core": "^0.0.0"
+    "@semtexjs/core": "^0.0.0",
+    "eslint-plugin-import": "^2.18.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4"
+    "@babel/preset-env": "^7.5.4",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0"
   }
 }
