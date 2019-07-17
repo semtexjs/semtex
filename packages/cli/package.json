@@ -1,0 +1,28 @@
+{
+  "name": "@semtexjs/cli",
+  "version": "0.0.0",
+  "description": "Semtex html template rendering engine command-line tooling",
+  "main": "bin/cli.js",
+  "module": "src/cli.js",
+  "scripts": {
+    "build": "babel src -d bin"
+  },
+  "keywords": [
+    "semtex",
+    "html",
+    "template",
+    "rendering",
+    "engine",
+    "command-line"
+  ],
+  "author": "Gary Doublé",
+  "license": "ISC",
+  "dependencies": {
+    "@semtexjs/core": "^0.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4"
+  }
+}

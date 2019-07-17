@@ -1,0 +1,24 @@
+{
+  "name": "@semtexjs/core",
+  "version": "0.0.0",
+  "description": "Semtex html template rendering engine",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "keywords": [
+    "semtex",
+    "html",
+    "template",
+    "rendering",
+    "engine"
+  ],
+  "author": "Gary Doublé",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4"
+  }
+}
