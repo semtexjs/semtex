@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf bin",
     "lint": "eslint src",
-    "build": "babel src -d bin",
+    "build": "babel --root-mode upward src -d bin",
     "test": "echo \"no tests available\"",
     "ci": "run-s clean lint build test"
   },
