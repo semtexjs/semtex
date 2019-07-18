@@ -1,10 +1,10 @@
 {
-  "name": "@semtexjs/core",
+  "name": "@semtexjs/html",
   "version": "1.0.0",
-  "description": "Semtex core infrastructure library package",
+  "description": "Semtex HTML plugin package",
   "author": "Gary Doublé <garydouble@live.com>",
   "license": "ISC",
-  "homepage": "https://github.com/semtexjs/semtex/tree/master/packages/core#readme",
+  "homepage": "https://github.com/semtexjs/semtex/tree/master/packages/html#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/semtexjs/semtex.git"
@@ -16,11 +16,12 @@
     "semtex",
     "html",
     "template",
-    "rendering",
-    "engine"
+    "reader",
+    "renderer",
+    "plugin"
   ],
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "main": "lib/html.js",
+  "module": "src/html.js",
   "scripts": {
     "clean": "rimraf lib",
     "lint": "eslint src",

@@ -1,11 +1,14 @@
 
-import semtex from '@semtexjs/core';
-import pkg from '../package.json';
+import core from '@semtexjs/core';
+import html from '@semtexjs/html';
 
-const cli = {
-  version: pkg.version,
+import { name, version } from '../package.json';
+
+export default {
+  name,
+  version,
 };
 
-
-console.log(`Semtex: Command-line v${cli.version}`);
-console.log(`Semtex: Core v${semtex.version}`);
+console.log(`${name} = v${version}`);
+console.log(`${core.name} = v${core.version}`);
+console.log(`${html.name} = v${html.version}`);

@@ -17,3 +17,6 @@ The Semtex core infrastructure library package
 
 - [@semtexjs/cli](https://github.com/semtexjs/semtex/tree/master/packages/cli)  
 The Semtex command-line tool package
+
+- [@semtexjs/html](https://github.com/semtexjs/semtex/tree/master/packages/html)  
+The Semtex HTML plugin package
