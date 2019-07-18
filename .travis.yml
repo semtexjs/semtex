@@ -14,12 +14,12 @@ before_deploy:
 deploy:
 - skip_cleanup: true
   provider: script
-  script: npx lerna publish
+  script: npx lerna publish --yes
   on:
     branch: master
 - skip_cleanup: true
   provider: script
-  script: npx lerna publish --canary --preid ${TRAVIS_BRANCH}
+  script: npx lerna publish --yes --canary --preid ${TRAVIS_BRANCH}
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH != "master"
